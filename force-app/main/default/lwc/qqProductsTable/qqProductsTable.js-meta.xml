@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Quote Products Table</masterLabel>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property label="Pricebook Id" name="pricebookId" type="String" role="inputOnly"></property>
+            <property label="Quote Id" name="quoteId" type="String" role="inputOnly"></property>
+            <property label="Quote Line Items" name="quoteLineItems" type="@salesforce/schema/QuoteLineItem[]" role="outputOnly"></property>
+            <property label="Deleted Quote Line Items" name="deletedQuoteLineItems" type="@salesforce/schema/QuoteLineItem[]" role="outputOnly"></property>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

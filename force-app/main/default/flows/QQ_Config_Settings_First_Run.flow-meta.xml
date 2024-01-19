@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <apiVersion>59.0</apiVersion>
+    <dynamicChoiceSets>
+        <name>PC_OpportunityStage</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>StageName</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <environments>Default</environments>
+    <interviewLabel>Quicker Quotes: Config Settings First Run {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Quicker Quotes: Config Settings First Run</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>CR_Create_Config_Setting</name>
+        <label>Create Config Setting</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <connector>
+            <targetReference>S_Setup_Complete</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Default_Quote_Validity__c</field>
+            <value>
+                <elementReference>IN_Validity</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opportunity_Stage_Name__c</field>
+            <value>
+                <elementReference>PL_Opportunity_Stage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Quote_Template_Id__c</field>
+            <value>
+                <elementReference>IT_Quote_Template_Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Quote_Template_Name__c</field>
+            <value>
+                <elementReference>IT_Quote_Template_Label</elementReference>
+            </value>
+        </inputAssignments>
+        <object>QQ_Config__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <screens>
+        <name>S_Quicker_Quotes_Config</name>
+        <label>Quicker Quotes Config</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>CR_Create_Config_Setting</targetReference>
+        </connector>
+        <fields>
+            <name>DT_Config_Text</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Hi, thanks for using Quicker Quotes!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;To get started, please set the config settings that will be used for your future quotes.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>S_Quicker_Quotes_Config_Section1</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>S_Quicker_Quotes_Config_Section1_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>DT_Stage_Text</name>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;Choose the stage that the Quick Quotes opportunity should be created in.  This would usually be one that represents the quote or proposal presented stage.&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <fields>
+                    <name>PL_Opportunity_Stage</name>
+                    <choiceReferences>PC_OpportunityStage</choiceReferences>
+                    <dataType>String</dataType>
+                    <fieldText>Opportunity Stage</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <name>DT_Expiry</name>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;Choose how long the quotes should be valid for by default.&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <fields>
+                    <name>IN_Validity</name>
+                    <dataType>Number</dataType>
+                    <defaultValue>
+                        <numberValue>14.0</numberValue>
+                    </defaultValue>
+                    <fieldText>Validity (Days)</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <isRequired>true</isRequired>
+                    <scale>0</scale>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>S_Quicker_Quotes_Config_Section1_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>DT_Quote_Template_Text</name>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(68, 68, 68);&quot;&gt;PDFs are generated using Quote Documents. Unfortunately, it&apos;s a bit fiddly to get the Quote Template Id to generate PDFs during the Quick Quote process.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(68, 68, 68);&quot;&gt;Edit the &lt;/span&gt;&lt;a href=&quot;/lightning/setup/QuoteTemplateEditor/home&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;color: rgb(1, 118, 211);&quot;&gt;&lt;strong&gt;&lt;u&gt;quote document&lt;/u&gt;&lt;/strong&gt;&lt;/a&gt;&lt;span style=&quot;color: rgb(68, 68, 68);&quot;&gt;, and then find and copy the Quote Id from the Address Bar.  The Id starts with a 0 and is located at:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(68, 68, 68);&quot;&gt;summlid%3D&lt;/span&gt;&lt;strong style=&quot;color: rgb(68, 68, 68);&quot;&gt;&amp;lt;THIS IS THE ID&amp;gt;&lt;/strong&gt;&lt;span style=&quot;color: rgb(68, 68, 68);&quot;&gt;%26r&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(68, 68, 68);&quot;&gt;For example, the ID from summlid%3D&lt;/span&gt;&lt;strong style=&quot;color: rgb(68, 68, 68);&quot;&gt;0EH5h000003ibgb&lt;/strong&gt;&lt;span style=&quot;color: rgb(68, 68, 68);&quot;&gt;%26r is &lt;/span&gt;&lt;strong style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;0EH5h000003ibgb&lt;/strong&gt;&lt;span style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;Also provide a label for the Quote Template.  If you wish to use multiple templates, you will need to edit the Flow and add them as additional Choices.&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <fields>
+                    <name>IT_Quote_Template_Label</name>
+                    <dataType>String</dataType>
+                    <fieldText>Quote Template Label</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <name>IT_Quote_Template_Id</name>
+                    <dataType>String</dataType>
+                    <fieldText>Quote Template Id</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <isRequired>true</isRequired>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>S_Setup_Complete</name>
+        <label>Setup Complete</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>DT_Setup_Complete</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255); font-size: 16px;&quot;&gt;Setup is now complete. Now, run the action again to create your first Quicker Quote!&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>S_Quicker_Quotes_Config</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+</Flow>

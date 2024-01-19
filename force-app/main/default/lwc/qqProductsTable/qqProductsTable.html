@@ -1,0 +1,255 @@
+<template>
+    <div onmousemove={resizeDrag} onmouseup={resizeMouseUp} style="min-height: 500px;"
+      class="slds-table_edit_container slds-is-relative">
+      <table aria-multiselectable="true"
+        class="slds-table slds-table_bordered slds-table_edit slds-table_fixed-layout slds-table_resizable-cols"
+        role="grid" style="width:100%" aria-label="Quote Table">
+        <thead>
+          <!-- Headings -->
+          <tr class="slds-line-height_reset">
+            <th aria-label="Product" aria-sort="none" class="slds-is-resizable slds-cell_action-mode" scope="col"
+              style="width:6rem">
+              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                <span class="slds-truncate slds-p-around_small" title="Product">Product</span>
+              </div>
+              <div class="slds-resizable">
+                <span class="slds-resizable__handle" onmousedown={resizeMouseDown}>
+                  <span class="slds-resizable__divider"></span>
+                </span>
+              </div>
+            </th>
+            <th aria-label="SKU" aria-sort="none" class="slds-is-resizable slds-cell_action-mode" scope="col"
+              style="width:5rem">
+              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                <span class="slds-truncate slds-p-around_small" title="SKU">SKU</span>
+              </div>
+              <div class="slds-resizable">
+                <span class="slds-resizable__handle" onmousedown={resizeMouseDown}>
+                  <span class="slds-resizable__divider"></span>
+                </span>
+              </div>
+            </th>
+            <th aria-label="Quantity" aria-sort="none" class="slds-is-resizable slds-cell_action-mode" scope="col"
+              style="width:3rem">
+              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                <span class="slds-truncate slds-p-around_small" title="Quantity">Quantity</span>
+              </div>
+              <div class="slds-resizable">
+                <span class="slds-resizable__handle" onmousedown={resizeMouseDown}>
+                  <span class="slds-resizable__divider"></span>
+                </span>
+              </div>
+            </th>
+            <th aria-label="$ Unit Price" aria-sort="none" class="slds-is-resizable slds-cell_action-mode" scope="col"
+              style="width:4rem">
+              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                <span class="slds-truncate slds-p-around_small" title="$ Unit Price">$ Unit Price</span>
+              </div>
+              <div class="slds-resizable">
+                <span class="slds-resizable__handle" onmousedown={resizeMouseDown}>
+                  <span class="slds-resizable__divider"></span>
+                </span>
+              </div>
+            </th>
+            <th aria-label="% Discount" aria-sort="none" class="slds-is-resizable slds-cell_action-mode" scope="col"
+              style="width:4rem">
+              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                <span class="slds-truncate slds-p-around_small" title="% Discount">% Discount</span>
+              </div>
+              <div class="slds-resizable">
+                <span class="slds-resizable__handle" onmousedown={resizeMouseDown}>
+                  <span class="slds-resizable__divider"></span>
+                </span>
+              </div>
+            </th>
+            <th aria-label="$ Subtotal" aria-sort="none" class="slds-is-resizable slds-cell_action-mode" scope="col"
+              style="width:4rem">
+              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                <span class="slds-truncate slds-p-around_small" title="$ Subtotal">$ Subtotal</span>
+              </div>
+              <div class="slds-resizable">
+                <span class="slds-resizable__handle" onmousedown={resizeMouseDown}>
+                  <span class="slds-resizable__divider"></span>
+                </span>
+              </div>
+            </th>
+            <th aria-label="Reorder" aria-sort="none" class="slds-cell_action-mode" scope="col" style="width:25px;">
+              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                <span class="slds-truncate" title="">&nbsp;</span>
+              </div>
+            </th>
+            <th aria-label="Delete" aria-sort="none" class="slds-cell_action-mode" scope="col" style="width:20px">
+              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                <span class="slds-truncate" title="">&nbsp;</span>
+              </div>
+            </th>
+          </tr>
+          <!-- End headings -->
+        </thead>
+        <tbody>
+          <template iterator:quoteline={quoteData}>
+            <tr aria-selected="false" class="slds-hint-parent" key={quoteline.value.key}>
+              <!-- Edit Mode True -->
+              <template if:true={quoteline.value.EditMode}>
+                <!-- Product Search -->
+                <th colspan="2" class="slds-cell-edit slds-cell_action-mode" scope="row">
+                  <div class="slds-combobox-container">
+                    <template if:true={quoteline.last}>
+                      <div class="slds-combobox slds-dropdown-trigger slds-show_inline-block" style="min-width: calc(100% - 30px); max-width: calc(100% - 30px);">
+                        <lightning-input class="slds-size_1-of-1" data-searchinput={quoteline.index} data-lineindex={quoteline.index}
+                          value={searchTerm} onkeydown={searchKeyDownHandler} onchange={searchChangeHandler}
+                          onblur={searchBlurHandler} name="product-search" label="Product Search"
+                          placeholder="Search SKU, Name, etc." type="search" variant="label-hidden">
+                        </lightning-input>
+                      </div>
+                      <div class="slds-show_inline-block slds-m-left_small" tabindex="-1"><lightning-button-icon data-lineindex={quoteline.index} icon-name="utility:expand_alt" variant="bare" onclick={modalSearchHandler} tabindex="-1"></lightning-button-icon></div>
+                    </template>
+                    <template if:false={quoteline.last}>
+                      <div class="slds-combobox slds-dropdown-trigger slds-show_inline-block" style="min-width: 100%; max-width: 100%;">
+                        <lightning-input class="slds-size_1-of-1" data-searchinput={quoteline.index} data-lineindex={quoteline.index}
+                          value={searchTerm} onkeydown={searchKeyDownHandler} onchange={searchChangeHandler}
+                          onblur={searchBlurHandler} name="product-search" label="Product Search"
+                          placeholder="Search SKU, Name, etc." type="search" variant="label-hidden">
+                        </lightning-input>
+                      </div>
+                    </template>                 
+                    <template if:true={showSearch}>
+                      <div data-id="foundRecords"
+                        class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid" role="listbox">
+                        <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                          <template for:each={searchRecords} for:item="record" for:index="index">
+                            <li tabindex="-1" key={record.Id} data-index={index} data-lineindex={quoteline.index}
+                              data-id={record.Id} data-input="input-record" role="presentation" class="slds-listbox__item"
+                              onmousedown={recordSelected} onkeydown={resultsKeyDownHandler}>
+                              <div class="slds-media slds-listbox__option slds-listbox__option_entity" role="option">
+                                <span class="slds-media__figure slds-listbox__option-icon">
+                                  <lightning-icon icon-name="standard:product_item" alternative-text={record.Name}
+                                    title={record.Name}>
+                                  </lightning-icon>
+                                </span>
+                                <span class="slds-media__body slds-align-middle">
+                                  <span class="slds-listbox__option-text slds-listbox__option-text_entity">{record.Name}
+                                    ({record.ProductCode})</span>
+                                </span>
+                              </div>
+                            </li>
+                          </template>
+                        </ul>
+                      </div>
+                    </template>
+                  </div>
+                </th>
+              </template>
+              <!-- Edit Mode False-->
+              <template if:false={quoteline.value.EditMode}>
+                <!-- Product Name -->
+                <th class="slds-cell-edit slds-cell_action-mode" scope="row">
+                  <span class="slds-grid slds-grid_align-spread">
+                    <a class="slds-truncate" href="#" tabindex="-1"
+                      title={quoteline.value.ProductName}>{quoteline.value.ProductName}</a>
+                    <button onclick={changeLineHandler} data-lineindex={quoteline.index}
+                      class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="-1"
+                      title="Change Product">
+                      <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_edit" aria-hidden="true">
+                        <use xlink:href="/resource/QQ_ProductsTableIcons/utility-sprite/svg/symbols.svg#edit"></use>
+                      </svg>
+                      <span class="slds-assistive-text">Change Product</span>
+                    </button>
+                  </span>
+                </th>
+                <!-- Product Code -->
+                <td aria-selected="false" class="slds-cell-edit slds-cell_action-mode" role="gridcell">
+                  <span class="slds-grid slds-grid_align-spread">
+                    <span class="slds-truncate" title={quoteline.value.ProductCode}
+                      tabindex="-1">{quoteline.value.ProductCode}</span>
+                  </span>
+                </td>
+              </template>
+  
+              <!-- Quantity -->
+              <td class="slds-cell-edit slds-cell_action-mode" role="gridcell">
+                <span class="slds-grid slds-grid_align-spread">
+                  <lightning-input onchange={calcLineHandler} data-quantityinput={quoteline.index}
+                    data-lineindex={quoteline.index} data-field="quantity" type="number" variant="label-hidden"
+                    label="Item Quantity" value={quoteline.value.Quantity}>
+                  </lightning-input>
+                </span>
+              </td>
+              <!-- Unit Price -->
+              <td aria-readonly="true" class="slds-cell-edit slds-cell_action-mode slds-text-align_right" role="gridcell">
+                <span class="slds-grid slds-grid_align-end">
+                  <span class="slds-truncate slds-text-align_right" title={quoteline.value.UnitPrice}>
+                    <lightning-formatted-number value={quoteline.value.UnitPrice} format-style="currency"
+                      currency-code="AUD">
+                    </lightning-formatted-number>
+                  </span>
+                </span>
+              </td>
+              <!-- Discount -->
+              <td class="slds-cell-edit slds-cell_action-mode" role="gridcell">
+                <span class="slds-grid slds-grid_align-spread">
+                  <lightning-input onchange={calcLineHandler} data-lineindex={quoteline.index} data-field="discountpc"
+                    type="number" variant="label-hidden" formatter="percent-fixed" step="0.01" label="Discount"
+                    value={quoteline.value.Discount}>
+                  </lightning-input>
+                </span>
+              </td>
+              <!-- Subtotal -->
+              <td aria-readonly="true" class="slds-cell-edit slds-cell_action-mode" role="gridcell">
+                <span class="slds-grid slds-grid_align-end">
+                  <span class="slds-truncate slds-text-align_right" title={quoteline.value.Subtotal}>
+                    <lightning-formatted-number value={quoteline.value.Subtotal} format-style="currency"
+                      currency-code="AUD">
+                    </lightning-formatted-number>
+                  </span>
+                </span>
+              </td>
+              <!-- Reorder Buttons -->
+              <td aria-readonly="true" class="slds-cell-edit slds-cell_action-mode" role="gridcell">
+                <template if:true={multipleRecords}>
+                  <template if:false={quoteline.last}>
+                    <template if:false={quoteline.value.First}>
+                      <button onclick={unshiftLineHandler} data-lineindex={quoteline.index}
+                        class="slds-p-around_none slds-m-around_none slds-button slds-button_icon" tabindex="-1"
+                        title="Unshift Product">
+                        <svg
+                          class="slds-button__icon slds-button__icon_small slds-button__icon_hint slds-button__icon_arrowup"
+                          aria-hidden="true">
+                          <use xlink:href="/resource/QQ_ProductsTableIcons/utility-sprite/svg/symbols.svg#arrowup"></use>
+                        </svg>
+                        <span class="slds-assistive-text">Unshift Product</span>
+                      </button>
+                    </template>
+                    <template if:false={quoteline.value.Last}>
+                      <button onclick={shiftLineHandler} data-lineindex={quoteline.index}
+                        class="slds-p-around_none slds-m-around_none slds-button slds-button_icon" tabindex="-1"
+                        title="Shift Product">
+                        <svg
+                          class="slds-button__icon slds-button__icon_small slds-button__icon_hint slds-button__icon_arrowdown"
+                          aria-hidden="true">
+                          <use xlink:href="/resource/QQ_ProductsTableIcons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                        </svg>
+                        <span class="slds-assistive-text">Shift Product</span>
+                      </button>
+                    </template>
+                  </template>
+                </template>
+              </td>
+              <!-- Delete Button -->
+              <td aria-readonly="true" class="slds-cell-edit slds-cell_action-mode" role="gridcell">
+                <template if:true={quoteline.value.AllowDelete}>
+                  <button onclick={deleteLineHandler} data-id={quoteline.value.Id} data-lineindex={quoteline.index}
+                    class="slds-button slds-button_icon" tabindex="-1" title="Delete Product">
+                    <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_delete" aria-hidden="true">
+                      <use xlink:href="/resource/QQ_ProductsTableIcons/utility-sprite/svg/symbols.svg#delete"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Delete Product</span>
+                  </button>
+                </template>
+              </td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </div>
+  </template>

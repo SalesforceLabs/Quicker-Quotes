@@ -1,0 +1,92 @@
+<template>
+    <lightning-modal-header label="All Products"></lightning-modal-header>
+    <lightning-modal-body>
+        <div style="min-height: 500px;">
+            <template if:true={dataLoaded}>
+
+                <lightning-input name="entry-search" label="Search Products" type="search" value={searchTerm}
+                    onchange={entrySearchHandler} class="slds-m-vertical_medium slds-size_1-of-3 "></lightning-input>
+
+                <table aria-multiselectable="true" class="slds-table slds-table_bordered" role="grid"
+                    aria-label="All Pricebook Entries" style="width:90%;" onscroll={handleScroll}>
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="slds-text-align_right slds-cell_action-mode" scope="col" style="width:3.25rem">
+                                <span id="column-group-header" class="slds-assistive-text">Choose a row</span>
+                                <div class="slds-th__action slds-th__action_form">
+                                    <div class="slds-checkbox">
+                                        <input type="checkbox" name="select-all" id="select-all" value="select-all"
+                                            tabindex="0" aria-labelledby="check-select-all-label column-group-header" />
+                                        <label class="slds-checkbox__label" for="select-all"
+                                            id="check-select-all-label">
+                                            <span class="slds-checkbox_faux"></span>
+                                            <span class="slds-form-element__label slds-assistive-text">Select All</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </th>
+                            <th aria-label="Product Name" class="slds-cell_action-mode" scope="col">
+                                <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                                    <span class="slds-truncate" title="Product Name">Product Name</span>
+                                </div>
+                            </th>
+                            <th aria-label="Product Code" class="slds-cell_action-mode" scope="col">
+                                <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                                    <span class="slds-truncate" title="Product Code">Product Code</span>
+                                </div>
+                            </th>
+                            <th aria-label="Unit Price" class="slds-cell_action-mode" scope="col">
+                                <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                                    <span class="slds-truncate" title="Unit Price">Unit Price</span>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <template for:each={pricebookData} for:item="pricebookEntry" for:index="index">
+
+
+                            <tr key={pricebookEntry.Id} aria-selected="false" class="slds-hint-parent">
+                                <td class="slds-text-align_right slds-cell_action-mode" role="gridcell">
+                                    <lightning-input type="checkbox" data-id={pricebookEntry.Id}
+                                        onchange={rowSelectionHandler} label={pricebookEntry.Name}
+                                        variant="label-hidden">
+                                    </lightning-input>
+                                </td>
+                                <th class="slds-cell_action-mode" scope="row">
+                                    <div class="slds-truncate" title={pricebookEntry.Name}>
+                                        <a href="#" tabindex="0">{pricebookEntry.Name}</a>
+                                    </div>
+                                </th>
+                                <td class="slds-cell_action-mode" role="gridcell">
+                                    <div class="slds-truncate" title={pricebookEntry.ProductCode}>
+                                        {pricebookEntry.ProductCode}</div>
+                                </td>
+                                <td class="slds-cell_action-mode" role="gridcell">
+                                    <div class="slds-truncate" title={pricebookEntry.UnitPrice}>
+                                        <lightning-formatted-number value={pricebookEntry.UnitPrice}
+                                            format-style="currency" currency-code="AUD"></lightning-formatted-number>
+                                    </div>
+                                </td>
+                            </tr>
+                        </template>
+
+                    </tbody>
+                    <template if:true={moreDataAvailable}>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4" class="slds-text-align_center">
+                                    <lightning-button label="Load More" onclick={loadMoreRecords}></lightning-button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </template>
+                </table>
+            </template>
+        </div>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <lightning-button variant="brand" label="Save Products" onclick={saveHandler}></lightning-button>
+    </lightning-modal-footer>
+</template>

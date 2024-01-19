@@ -1,0 +1,7 @@
+<aura:component implements="lightning:availableForFlowActions">
+    <lightning:pageReferenceUtils aura:id="pageRefUtils" />
+    <aura:attribute name="destinationRecordId" type="String" />
+    <aura:attribute name="destinationObjectType" type="String" />
+    <aura:attribute name="destinationAction" type="String" />
+    <lightning:navigation aura:id="navService" />
+</aura:component>
