@@ -5,7 +5,7 @@
       "default": true,
       "package": "Quicker Quotes",
       "versionName": "AppExchange",
-      "versionNumber": "1.4.0.NEXT",
+      "versionNumber": "1.6.0.NEXT",
       "versionDescription": "",
       "ancestorVersion": "HIGHEST"
     },
@@ -29,6 +29,8 @@
     "Quicker Quotes@1.2.0.1": "04tQE0000003BdFYAU",
     "Quicker Quotes@1.3.0.1": "04tQE0000003BerYAE",
     "Quicker Quotes@1.4.0.1": "04tQE0000003BzpYAE",
+    "Quicker Quotes@1.5.0.1": "04tQE0000003CFxYAM",
+    "Quicker Quotes@1.6.0.1": "04tQE0000003CHZYA2",
     "Quicker Quotes Unlocked": "0HoQE00000001wz0AA",
     "Quicker Quotes Unlocked@1.0.0.1": "04tQE00000039JhYAI",
     "Quicker Quotes Unlocked@1.1.0.1": "04tQE00000039WbYAI",
