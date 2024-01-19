@@ -4,7 +4,7 @@
         var pageReference = {
             type: 'standard__navItemPage',
             attributes: {
-                apiName: 'QQ_New_Quote2'
+                apiName: 'QQ_New_Quote'
             }
         }
         navService.navigate(pageReference);
