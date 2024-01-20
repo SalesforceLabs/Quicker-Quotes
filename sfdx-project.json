@@ -1,0 +1,31 @@
+{
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true,
+      "package": "Quicker Quotes",
+      "versionName": "AppExchange",
+      "versionNumber": "1.10.0.NEXT",
+      "versionDescription": "",
+      "ancestorVersion": "HIGHEST"
+    },
+    {
+      "path": "force-app",
+      "package": "Quicker Quotes Unlocked",
+      "versionName": "AppExchange",
+      "versionNumber": "1.10.0.NEXT",
+      "default": false,
+      "versionDescription": ""
+    }
+  ],
+  "name": "quicker-quotes-managed",
+  "namespace": "quickerquotes",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "59.0",
+  "packageAliases": {
+    "Quicker Quotes": "0HoQE00000001tl0AA",
+    "Quicker Quotes Unlocked": "0HoQE00000001wz0AA",
+    "Quicker Quotes@1.10.0.1": "04tQE0000003CXhYAM",
+    "Quicker Quotes Unlocked@1.10.0.1": "04tQE0000003CZJYA2"
+  }
+}
