@@ -5,7 +5,7 @@
       "default": true,
       "package": "Quicker Quotes",
       "versionName": "AppExchange",
-      "versionNumber": "1.8.0.NEXT",
+      "versionNumber": "1.10.0.NEXT",
       "versionDescription": "",
       "ancestorVersion": "HIGHEST"
     },
@@ -13,7 +13,7 @@
       "path": "force-app",
       "package": "Quicker Quotes Unlocked",
       "versionName": "AppExchange",
-      "versionNumber": "1.8.0.NEXT",
+      "versionNumber": "1.10.0.NEXT",
       "default": false,
       "versionDescription": ""
     }
@@ -25,7 +25,7 @@
   "packageAliases": {
     "Quicker Quotes": "0HoQE00000001tl0AA",
     "Quicker Quotes Unlocked": "0HoQE00000001wz0AA",
-    "Quicker Quotes@1.8.0.1": "04tQE0000003CKnYAM",
-    "Quicker Quotes Unlocked@1.8.0.1": "04tQE0000003CMPYA2"
+    "Quicker Quotes@1.10.0.1": "04tQE0000003CXhYAM",
+    "Quicker Quotes Unlocked@1.10.0.1": "04tQE0000003CZJYA2"
   }
 }
