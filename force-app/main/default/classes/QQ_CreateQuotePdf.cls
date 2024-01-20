@@ -24,7 +24,7 @@ public with sharing class QQ_CreateQuotePdf {
         }
         quoteDoc.QuoteId = quoteId;
 
-        insert(quoteDoc);
+        if(QuoteDocument.sObjectType.getDescribe().isCreateable()) insert(quoteDoc);
 
 	}
 
