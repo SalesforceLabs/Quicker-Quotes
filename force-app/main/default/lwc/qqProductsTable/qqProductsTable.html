@@ -40,10 +40,10 @@
               </span>
             </div>
           </th>
-          <th aria-label="$ Unit Price" aria-sort="none" class="slds-is-resizable slds-cell_action-mode" scope="col"
+          <th aria-label="Unit Price" aria-sort="none" class="slds-is-resizable slds-cell_action-mode" scope="col"
             style="width:4rem">
             <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
-              <span class="slds-truncate slds-p-around_small" title="$ Unit Price">$ Unit Price</span>
+              <span class="slds-truncate slds-p-around_small" title="Unit Price">Unit Price</span>
             </div>
             <div class="slds-resizable">
               <span class="slds-resizable__handle" onmousedown={resizeMouseDown}>
@@ -62,10 +62,10 @@
               </span>
             </div>
           </th>
-          <th aria-label="$ Subtotal" aria-sort="none" class="slds-is-resizable slds-cell_action-mode" scope="col"
+          <th aria-label="Subtotal" aria-sort="none" class="slds-is-resizable slds-cell_action-mode" scope="col"
             style="width:4rem">
             <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
-              <span class="slds-truncate slds-p-around_small" title="$ Subtotal">$ Subtotal</span>
+              <span class="slds-truncate slds-p-around_small" title="Subtotal">Subtotal</span>
             </div>
             <div class="slds-resizable">
               <span class="slds-resizable__handle" onmousedown={resizeMouseDown}>
@@ -177,8 +177,7 @@
             <td aria-readonly="true" class="slds-cell-edit slds-cell_action-mode slds-text-align_right" role="gridcell">
               <span class="slds-grid slds-grid_align-end">
                 <span class="slds-truncate slds-text-align_right" title={quoteline.value.UnitPrice}>
-                  <lightning-formatted-number value={quoteline.value.UnitPrice} format-style="currency"
-                    currency-code="AUD">
+                  <lightning-formatted-number value={quoteline.value.UnitPrice} currency-code={currencyCode} format-style="currency" currency-display-as="symbol">
                   </lightning-formatted-number>
                 </span>
               </span>
@@ -196,8 +195,7 @@
             <td aria-readonly="true" class="slds-cell-edit slds-cell_action-mode" role="gridcell">
               <span class="slds-grid slds-grid_align-end">
                 <span class="slds-truncate slds-text-align_right" title={quoteline.value.Subtotal}>
-                  <lightning-formatted-number value={quoteline.value.Subtotal} format-style="currency"
-                    currency-code="AUD">
+                  <lightning-formatted-number value={quoteline.value.Subtotal} currency-code={currencyCode} format-style="currency" currency-display-as="symbol">
                   </lightning-formatted-number>
                 </span>
               </span>
