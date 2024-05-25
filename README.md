@@ -2,11 +2,14 @@
 
 Quicker Quotes aims to simplify the Salesforce standard quoting process.  It provides a sample flow that captures the minimal information needed to create a related opportunity and quote, and includes a quick-entry Products Table.  After adding the products, quantities and discounts, the flow automatically generates a PDF ready to send to the customer.
 
+
 ## Installation Requirements & Setup
 
 * The component should only be installed in orgs after the Quoting functionality has been turned on (Setup -> Quote Settings -> Enable)
-* Following install, add the "New Quicker Quote" action to any Account Page Layouts you want to initiate Quicker Quotes from.
+* Following install, add the "New Quicker Quote" action to any Account, Opportunity, and Contact Page Layouts you want to initiate Quicker Quotes from.
+* You can also add the New Quicker Quote global action to any global publisher layouts. Don't use the global action on record page layouts, as it won't have the context of which record you're on.
 * The first time the action is run the Flow will prompt the user to enter default settings for the component, such as the Opportunity Stage Name to use, the default Quote validity time, and the Quote Document template to use.
+
 
 ## Components
 
