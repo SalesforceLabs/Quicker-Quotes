@@ -1,4 +1,4 @@
-<aura:component implements="lightning:availableForFlowActions">
+<aura:component implements="lightning:availableForFlowActions" access="global">
     <lightning:pageReferenceUtils aura:id="pageRefUtils" />
     <aura:attribute name="destinationRecordId" type="String" />
     <aura:attribute name="destinationObjectType" type="String" />

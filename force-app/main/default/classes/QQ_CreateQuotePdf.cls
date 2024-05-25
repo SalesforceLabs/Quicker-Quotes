@@ -1,7 +1,7 @@
-public with sharing class QQ_CreateQuotePdf {
+global with sharing class QQ_CreateQuotePdf {
 
     @InvocableMethod(label='Create PDF' description='Creates a Quote PDF document using the provided template' )
-    public static void createPdf(List<RequestInput> inputs) {
+    global static void createPdf(List<RequestInput> inputs) {
         callFutureMethod(inputs[0].quoteId, inputs[0].templateId);        
     }
     
@@ -28,9 +28,9 @@ public with sharing class QQ_CreateQuotePdf {
 
 	}
 
-    public class RequestInput {
-        @InvocableVariable(label='Quote Id' required=true) public Id quoteId;
-        @InvocableVariable(label='Quote Template Id' required=true) public Id templateId;
+    global class RequestInput {
+        @InvocableVariable(label='Quote Id' required=true) global Id quoteId;
+        @InvocableVariable(label='Quote Template Id' required=true) global Id templateId;
     }
     
 }
