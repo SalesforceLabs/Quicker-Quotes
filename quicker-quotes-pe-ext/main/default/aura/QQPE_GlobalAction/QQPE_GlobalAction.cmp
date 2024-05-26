@@ -1,8 +1,0 @@
-<aura:component implements="force:lightningQuickAction" access="global" >
-    <aura:handler name="init" value="{!this}" action="{!c.init}" />
-	<lightning:pageReferenceUtils aura:id="pageRefUtils"/>
-    <lightning:navigation aura:id="navService"/>
-    
-    <div class="slds-text-heading_medium">Opening New Quote Page</div>
-    
-</aura:component>
