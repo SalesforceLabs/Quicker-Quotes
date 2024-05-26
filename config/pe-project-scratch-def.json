@@ -1,0 +1,17 @@
+{
+  "orgName": "amcdonald company",
+  "edition": "Professional",
+  "features": ["API"],
+  "settings": {
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": false
+    },
+    "quoteSettings": {
+      "enableQuote" : true
+    }
+  }
+}
+
