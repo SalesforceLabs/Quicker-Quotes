@@ -3,8 +3,8 @@
     <actionCalls>
         <name>AA_Create_PDF_Document</name>
         <label>Create PDF Document</label>
-        <locationX>380</locationX>
-        <locationY>3086</locationY>
+        <locationX>314</locationX>
+        <locationY>3194</locationY>
         <actionName>QQ_CreateQuotePdf</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -29,9 +29,9 @@
     <actionCalls>
         <name>AA_Redirect_to_Quote</name>
         <label>Redirect to Quote</label>
-        <locationX>512</locationX>
-        <locationY>3386</locationY>
-        <actionName>c:QQ_NavigateToRecord</actionName>
+        <locationX>600</locationX>
+        <locationY>3578</locationY>
+        <actionName>quickerquotes:QQ_NavigateToRecord</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
@@ -52,7 +52,7 @@
                 <stringValue>view</stringValue>
             </value>
         </inputParameters>
-        <nameSegment>c:QQ_NavigateToRecord</nameSegment>
+        <nameSegment>quickerquotes:QQ_NavigateToRecord</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
         <versionSegment>1</versionSegment>
     </actionCalls>
@@ -60,7 +60,7 @@
     <assignments>
         <name>A_Assign_Account_Id_1</name>
         <label>Assign Account Id</label>
-        <locationX>710</locationX>
+        <locationX>798</locationX>
         <locationY>566</locationY>
         <assignmentItems>
             <assignToReference>V_AccountId</assignToReference>
@@ -76,7 +76,7 @@
     <assignments>
         <name>A_Assign_Account_Id_2</name>
         <label>Assign Account Id</label>
-        <locationX>1106</locationX>
+        <locationX>1194</locationX>
         <locationY>350</locationY>
         <assignmentItems>
             <assignToReference>V_AccountId</assignToReference>
@@ -93,7 +93,7 @@
     <assignments>
         <name>A_Assign_Contact_Id_1</name>
         <label>Assign Contact Id</label>
-        <locationX>578</locationX>
+        <locationX>666</locationX>
         <locationY>1322</locationY>
         <assignmentItems>
             <assignToReference>V_ContactId</assignToReference>
@@ -109,7 +109,7 @@
     <assignments>
         <name>A_Assign_Contact_Id_2</name>
         <label>Assign Contact Id</label>
-        <locationX>842</locationX>
+        <locationX>930</locationX>
         <locationY>1106</locationY>
         <assignmentItems>
             <assignToReference>V_ContactId</assignToReference>
@@ -125,7 +125,7 @@
     <assignments>
         <name>A_Assign_Contact_Record</name>
         <label>Assign Contact Record</label>
-        <locationX>842</locationX>
+        <locationX>930</locationX>
         <locationY>1322</locationY>
         <assignmentItems>
             <assignToReference>ContactRecord</assignToReference>
@@ -141,7 +141,7 @@
     <assignments>
         <name>A_Assign_Opportunity_Id_1</name>
         <label>Assign Opportunity Id</label>
-        <locationX>314</locationX>
+        <locationX>402</locationX>
         <locationY>1214</locationY>
         <assignmentItems>
             <assignToReference>V_OpportunityId</assignToReference>
@@ -157,7 +157,7 @@
     <assignments>
         <name>A_Assign_Opportunity_Id_2</name>
         <label>Assign Opportunity Id</label>
-        <locationX>578</locationX>
+        <locationX>666</locationX>
         <locationY>1838</locationY>
         <assignmentItems>
             <assignToReference>V_OpportunityId</assignToReference>
@@ -173,7 +173,7 @@
     <assignments>
         <name>A_Assign_Opportunity_Id_3</name>
         <label>Assign Opportunity Id</label>
-        <locationX>842</locationX>
+        <locationX>930</locationX>
         <locationY>1622</locationY>
         <assignmentItems>
             <assignToReference>V_OpportunityId</assignToReference>
@@ -189,7 +189,7 @@
     <assignments>
         <name>A_Assign_Opportunity_Record</name>
         <label>Assign Opportunity Record</label>
-        <locationX>842</locationX>
+        <locationX>930</locationX>
         <locationY>1838</locationY>
         <assignmentItems>
             <assignToReference>OpportunityRecord</assignToReference>
@@ -205,7 +205,7 @@
     <assignments>
         <name>A_Assign_Quote_Details</name>
         <label>Assign Quote Details</label>
-        <locationX>512</locationX>
+        <locationX>600</locationX>
         <locationY>2222</locationY>
         <assignmentItems>
             <assignToReference>QuoteRecord.Name</assignToReference>
@@ -333,7 +333,7 @@
     <assignments>
         <name>A_Assign_Quote_Id</name>
         <label>Assign Quote Id</label>
-        <locationX>512</locationX>
+        <locationX>600</locationX>
         <locationY>2438</locationY>
         <assignmentItems>
             <assignToReference>V_QuoteId</assignToReference>
@@ -349,7 +349,7 @@
     <assignments>
         <name>A_Assign_Updated_Details_1</name>
         <label>Assign Updated Details</label>
-        <locationX>314</locationX>
+        <locationX>402</locationX>
         <locationY>674</locationY>
         <assignmentItems>
             <assignToReference>ContactRecord.AccountId</assignToReference>
@@ -372,7 +372,7 @@
     <assignments>
         <name>A_Assign_Updated_Details_2</name>
         <label>Assign Updated Details</label>
-        <locationX>314</locationX>
+        <locationX>402</locationX>
         <locationY>890</locationY>
         <assignmentItems>
             <assignToReference>OpportunityRecord.Name</assignToReference>
@@ -423,7 +423,7 @@
     <assignments>
         <name>A_Assign_Updated_Details_3</name>
         <label>Assign Updated Details</label>
-        <locationX>710</locationX>
+        <locationX>798</locationX>
         <locationY>782</locationY>
         <assignmentItems>
             <assignToReference>AccountRecord</assignToReference>
@@ -474,7 +474,7 @@
     <assignments>
         <name>A_Assign_Updated_Details_4</name>
         <label>Assign Updated Details</label>
-        <locationX>578</locationX>
+        <locationX>666</locationX>
         <locationY>1106</locationY>
         <assignmentItems>
             <assignToReference>ContactRecord.AccountId</assignToReference>
@@ -490,7 +490,7 @@
     <assignments>
         <name>A_Assign_Updated_Details_5</name>
         <label>Assign Updated Details</label>
-        <locationX>578</locationX>
+        <locationX>666</locationX>
         <locationY>1622</locationY>
         <assignmentItems>
             <assignToReference>OpportunityRecord.ContactId</assignToReference>
@@ -503,19 +503,11 @@
             <targetReference>CR_Create_Opportunity_2</targetReference>
         </connector>
     </assignments>
-    <choices>
-        <name>C_DefaultQuoteTemplate</name>
-        <choiceText>{!$Setup.QQ_Config__c.Quote_Template_Name__c}</choiceText>
-        <dataType>String</dataType>
-        <value>
-            <elementReference>$Setup.QQ_Config__c.Quote_Template_Id__c</elementReference>
-        </value>
-    </choices>
     <decisions>
         <name>D_Create_PDF</name>
         <label>Create PDF?</label>
-        <locationX>512</locationX>
-        <locationY>2978</locationY>
+        <locationX>446</locationX>
+        <locationY>3086</locationY>
         <defaultConnector>
             <targetReference>S_Confirmation_Screen</targetReference>
         </defaultConnector>
@@ -540,7 +532,7 @@
         <description>If this is the first run, then create the custom setting.</description>
         <name>D_First_Run</name>
         <label>First Run?</label>
-        <locationX>627</locationX>
+        <locationX>671</locationX>
         <locationY>134</locationY>
         <defaultConnector>
             <targetReference>D_Record_Id_Type</targetReference>
@@ -550,7 +542,7 @@
             <name>O_Yes_First_Run</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Setup.QQ_Config__c.Opportunity_Stage_Name__c</leftValueReference>
+                <leftValueReference>$Setup.quickerquotes__QQ_Config__c.quickerquotes__Opportunity_Stage_Name__c</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
@@ -563,9 +555,34 @@
         </rules>
     </decisions>
     <decisions>
+        <name>D_Generate_PDF_Enabled</name>
+        <label>Generate PDF Enabled</label>
+        <locationX>600</locationX>
+        <locationY>2870</locationY>
+        <defaultConnector>
+            <targetReference>S_Confirmation_Screen</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>O_PDF_Enabled</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Setup.quickerquotes__QQ_Config__c.quickerquotes__Use_PDF__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>S_Create_PDF</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>D_New_Existing_Account</name>
         <label>New/Existing Account</label>
-        <locationX>512</locationX>
+        <locationX>600</locationX>
         <locationY>458</locationY>
         <defaultConnector>
             <targetReference>A_Assign_Account_Id_1</targetReference>
@@ -590,7 +607,7 @@
     <decisions>
         <name>D_New_Existing_Contact</name>
         <label>New/Existing Contact</label>
-        <locationX>710</locationX>
+        <locationX>798</locationX>
         <locationY>998</locationY>
         <defaultConnector>
             <targetReference>A_Assign_Contact_Id_2</targetReference>
@@ -615,7 +632,7 @@
     <decisions>
         <name>D_New_Existing_Opportunity</name>
         <label>New/Existing Opportunity</label>
-        <locationX>710</locationX>
+        <locationX>798</locationX>
         <locationY>1514</locationY>
         <defaultConnector>
             <targetReference>A_Assign_Opportunity_Id_3</targetReference>
@@ -640,7 +657,7 @@
     <decisions>
         <name>D_Record_Id_Type</name>
         <label>Record Id Type</label>
-        <locationX>1205</locationX>
+        <locationX>1293</locationX>
         <locationY>242</locationY>
         <defaultConnector>
             <targetReference>S_Error_Screen</targetReference>
@@ -757,6 +774,15 @@
         <sortOrder>Asc</sortOrder>
         <valueField>Id</valueField>
     </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>RC_Quote_Templates</name>
+        <dataType>String</dataType>
+        <displayField>Template_Name__c</displayField>
+        <object>QQ_Quote_Template__c</object>
+        <sortField>Order__c</sortField>
+        <sortOrder>Asc</sortOrder>
+        <valueField>Template_Id__c</valueField>
+    </dynamicChoiceSets>
     <environments>Default</environments>
     <formulas>
         <name>F_DefaultOpportunityName</name>
@@ -766,12 +792,12 @@
     <formulas>
         <name>F_DefaultOpportunityStage</name>
         <dataType>String</dataType>
-        <expression>{!$Setup.QQ_Config__c.Opportunity_Stage_Name__c}</expression>
+        <expression>{!$Setup.quickerquotes__QQ_Config__c.quickerquotes__Opportunity_Stage_Name__c}</expression>
     </formulas>
     <formulas>
         <name>F_DefaultQuoteExpiry</name>
         <dataType>Date</dataType>
-        <expression>TODAY() + {!$Setup.QQ_Config__c.Default_Quote_Validity__c}</expression>
+        <expression>TODAY() + {!$Setup.quickerquotes__QQ_Config__c.quickerquotes__Default_Quote_Validity__c}</expression>
     </formulas>
     <interviewLabel>Quicker Quotes: New Quote (Extension) {!$Flow.CurrentDateTime}</interviewLabel>
     <isTemplate>true</isTemplate>
@@ -798,7 +824,7 @@
     <recordCreates>
         <name>CR_Create_Account</name>
         <label>Create Account</label>
-        <locationX>314</locationX>
+        <locationX>402</locationX>
         <locationY>566</locationY>
         <connector>
             <targetReference>A_Assign_Updated_Details_1</targetReference>
@@ -808,7 +834,7 @@
     <recordCreates>
         <name>CR_Create_Contact_1</name>
         <label>Create Contact</label>
-        <locationX>314</locationX>
+        <locationX>402</locationX>
         <locationY>782</locationY>
         <connector>
             <targetReference>A_Assign_Updated_Details_2</targetReference>
@@ -818,7 +844,7 @@
     <recordCreates>
         <name>CR_Create_Contact_2</name>
         <label>Create Contact</label>
-        <locationX>578</locationX>
+        <locationX>666</locationX>
         <locationY>1214</locationY>
         <connector>
             <targetReference>A_Assign_Contact_Id_1</targetReference>
@@ -828,7 +854,7 @@
     <recordCreates>
         <name>CR_Create_Opportunity_1</name>
         <label>Create Opportunity</label>
-        <locationX>314</locationX>
+        <locationX>402</locationX>
         <locationY>1106</locationY>
         <connector>
             <targetReference>A_Assign_Opportunity_Id_1</targetReference>
@@ -838,7 +864,7 @@
     <recordCreates>
         <name>CR_Create_Opportunity_2</name>
         <label>Create Opportunity</label>
-        <locationX>578</locationX>
+        <locationX>666</locationX>
         <locationY>1730</locationY>
         <connector>
             <targetReference>A_Assign_Opportunity_Id_2</targetReference>
@@ -848,7 +874,7 @@
     <recordCreates>
         <name>CR_Create_Quote</name>
         <label>Create Quote</label>
-        <locationX>512</locationX>
+        <locationX>600</locationX>
         <locationY>2330</locationY>
         <connector>
             <targetReference>A_Assign_Quote_Id</targetReference>
@@ -858,7 +884,7 @@
     <recordCreates>
         <name>CR_Create_Quote_Line_Items</name>
         <label>Create Quote Line Items</label>
-        <locationX>512</locationX>
+        <locationX>600</locationX>
         <locationY>2654</locationY>
         <connector>
             <targetReference>UR_Update_Opportunity</targetReference>
@@ -868,7 +894,7 @@
     <recordLookups>
         <name>GR_Get_Account</name>
         <label>Get Account</label>
-        <locationX>710</locationX>
+        <locationX>798</locationX>
         <locationY>674</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -889,7 +915,7 @@
     <recordLookups>
         <name>GR_Get_Contact_1</name>
         <label>Get Contact</label>
-        <locationX>1370</locationX>
+        <locationX>1458</locationX>
         <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -917,7 +943,7 @@
     <recordLookups>
         <name>GR_Get_Contact_2</name>
         <label>Get Contact</label>
-        <locationX>842</locationX>
+        <locationX>930</locationX>
         <locationY>1214</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -938,7 +964,7 @@
     <recordLookups>
         <name>GR_Get_Opportunity_1</name>
         <label>Get Opportunity</label>
-        <locationX>1634</locationX>
+        <locationX>1722</locationX>
         <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -970,7 +996,7 @@
     <recordLookups>
         <name>GR_Get_Opportunity_2</name>
         <label>Get Opportunity</label>
-        <locationX>842</locationX>
+        <locationX>930</locationX>
         <locationY>1730</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -991,7 +1017,7 @@
     <recordUpdates>
         <name>UR_Update_Account_Default_Pricebook</name>
         <label>Update Account Default Pricebook</label>
-        <locationX>512</locationX>
+        <locationX>600</locationX>
         <locationY>2114</locationY>
         <connector>
             <targetReference>A_Assign_Quote_Details</targetReference>
@@ -1015,10 +1041,10 @@
     <recordUpdates>
         <name>UR_Update_Opportunity</name>
         <label>Update Opportunity</label>
-        <locationX>512</locationX>
+        <locationX>600</locationX>
         <locationY>2762</locationY>
         <connector>
-            <targetReference>S_Create_PDF</targetReference>
+            <targetReference>D_Generate_PDF_Enabled</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -1039,8 +1065,8 @@
     <screens>
         <name>S_Confirmation_Screen</name>
         <label>Confirmation Screen</label>
-        <locationX>512</locationX>
-        <locationY>3278</locationY>
+        <locationX>600</locationX>
+        <locationY>3470</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -1059,7 +1085,7 @@
     <screens>
         <name>S_Create_Opportunity</name>
         <label>Create Opportunity</label>
-        <locationX>314</locationX>
+        <locationX>402</locationX>
         <locationY>998</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -1130,8 +1156,8 @@
     <screens>
         <name>S_Create_PDF</name>
         <label>Create PDF</label>
-        <locationX>512</locationX>
-        <locationY>2870</locationY>
+        <locationX>446</locationX>
+        <locationY>2978</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -1157,6 +1183,7 @@
                     </defaultValue>
                     <fieldText>Create PDF</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
@@ -1172,11 +1199,14 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>PL_Quote_Template</name>
-                    <choiceReferences>C_DefaultQuoteTemplate</choiceReferences>
+                    <choiceReferences>RC_Quote_Templates</choiceReferences>
                     <dataType>String</dataType>
-                    <defaultSelectedChoiceReference>C_DefaultQuoteTemplate</defaultSelectedChoiceReference>
+                    <defaultValue>
+                        <elementReference>$Setup.quickerquotes__QQ_Config__c.quickerquotes__Default_PDF_Template_Id__c</elementReference>
+                    </defaultValue>
                     <fieldText>Quote Template</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -1206,7 +1236,7 @@
     <screens>
         <name>S_Error_Screen</name>
         <label>Error Screen</label>
-        <locationX>1898</locationX>
+        <locationX>1986</locationX>
         <locationY>350</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -1222,7 +1252,7 @@
     <screens>
         <name>S_Quote_Products</name>
         <label>Quote Products</label>
-        <locationX>512</locationX>
+        <locationX>600</locationX>
         <locationY>2546</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -1237,7 +1267,7 @@
         </fields>
         <fields>
             <name>LWC_QuoteProducts</name>
-            <extensionName>c:qqProductsTable</extensionName>
+            <extensionName>quickerquotes:qqProductsTable</extensionName>
             <fieldType>ComponentInstance</fieldType>
             <inputParameters>
                 <name>pricebookId</name>
@@ -1261,7 +1291,7 @@
     <screens>
         <name>S_Select_Create_Account</name>
         <label>Select/Create Account</label>
-        <locationX>512</locationX>
+        <locationX>600</locationX>
         <locationY>350</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -1308,6 +1338,7 @@
             </defaultValue>
             <fieldText>Create New Account</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -1499,7 +1530,7 @@
     <screens>
         <name>S_Select_Create_Contact_Opportunity</name>
         <label>Select/Create Contact &amp; Opportunity</label>
-        <locationX>710</locationX>
+        <locationX>798</locationX>
         <locationY>890</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -1521,6 +1552,7 @@
             </defaultValue>
             <fieldText>Select Contact</fieldText>
             <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -1541,6 +1573,7 @@
             </defaultValue>
             <fieldText>Create New Contact</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -1619,6 +1652,7 @@
             </defaultValue>
             <fieldText>Select Opportunity</fieldText>
             <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -1639,6 +1673,7 @@
             </defaultValue>
             <fieldText>Create New Opportunity</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -1707,7 +1742,7 @@
         <showHeader>false</showHeader>
     </screens>
     <start>
-        <locationX>501</locationX>
+        <locationX>545</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>D_First_Run</targetReference>
