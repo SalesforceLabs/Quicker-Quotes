@@ -20,3 +20,11 @@ qqProductsTable: Custom Lightning Web Component (LWC) that streamlines the entry
 QQ_CreateQuotePDF: Custom Apex Action to generate the PDF quote
 
 QQ_NavigateToRecord: Flow Action Component to redirect the user to the newly created Quote at the end of the flow.
+
+
+## Packages
+
+* Main Package (Quicker Quotes) in force-app folder designed to be installed as a managed AppExchange package. Like all managed packages, you can't edit any of the elements in it.  So if it's not perfect, you either need to install the Unlocked package in it's entirety, or install an Unlocked Extension package over the top.
+* Extension Package (Quicker Quotes Extensions) in quicker-quotes-ext folder designed as an unlocked package for installation in addition to the managed AppExchange package.  Provides modifiable versions of the main flows, actions, Lightning Page and Custom Tab.
+* PE Extension Package (Quicker Quotes PE Extensions) in quicker-quotes-pe-ext folder, designed as an unlocked package for installation in PE orgs.  Provides modifiable versions of the New Quotes flow, actions, Lightning Page and Custom Tab, with incompatible PDF functionality removed.
+* 
