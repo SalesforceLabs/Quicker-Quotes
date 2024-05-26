@@ -31,7 +31,7 @@
         <label>Redirect to Quote</label>
         <locationX>600</locationX>
         <locationY>3578</locationY>
-        <actionName>quickerquotes:QQ_NavigateToRecord</actionName>
+        <actionName>c:QQ_NavigateToRecord</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
@@ -52,7 +52,7 @@
                 <stringValue>view</stringValue>
             </value>
         </inputParameters>
-        <nameSegment>quickerquotes:QQ_NavigateToRecord</nameSegment>
+        <nameSegment>c:QQ_NavigateToRecord</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
         <versionSegment>1</versionSegment>
     </actionCalls>
@@ -542,7 +542,7 @@
             <name>O_Yes_First_Run</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Setup.quickerquotes__QQ_Config__c.quickerquotes__Opportunity_Stage_Name__c</leftValueReference>
+                <leftValueReference>$Setup.QQ_Config__c.Opportunity_Stage_Name__c</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
@@ -567,7 +567,7 @@
             <name>O_PDF_Enabled</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Setup.quickerquotes__QQ_Config__c.quickerquotes__Use_PDF__c</leftValueReference>
+                <leftValueReference>$Setup.QQ_Config__c.Use_PDF__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
@@ -792,12 +792,12 @@
     <formulas>
         <name>F_DefaultOpportunityStage</name>
         <dataType>String</dataType>
-        <expression>{!$Setup.quickerquotes__QQ_Config__c.quickerquotes__Opportunity_Stage_Name__c}</expression>
+        <expression>{!$Setup.QQ_Config__c.Opportunity_Stage_Name__c}</expression>
     </formulas>
     <formulas>
         <name>F_DefaultQuoteExpiry</name>
         <dataType>Date</dataType>
-        <expression>TODAY() + {!$Setup.quickerquotes__QQ_Config__c.quickerquotes__Default_Quote_Validity__c}</expression>
+        <expression>TODAY() + {!$Setup.QQ_Config__c.Default_Quote_Validity__c}</expression>
     </formulas>
     <interviewLabel>Quicker Quotes: New Quote (Extension) {!$Flow.CurrentDateTime}</interviewLabel>
     <isTemplate>true</isTemplate>
@@ -1202,7 +1202,7 @@
                     <choiceReferences>RC_Quote_Templates</choiceReferences>
                     <dataType>String</dataType>
                     <defaultValue>
-                        <elementReference>$Setup.quickerquotes__QQ_Config__c.quickerquotes__Default_PDF_Template_Id__c</elementReference>
+                        <elementReference>$Setup.QQ_Config__c.Default_PDF_Template_Id__c</elementReference>
                     </defaultValue>
                     <fieldText>Quote Template</fieldText>
                     <fieldType>DropdownBox</fieldType>
@@ -1267,7 +1267,7 @@
         </fields>
         <fields>
             <name>LWC_QuoteProducts</name>
-            <extensionName>quickerquotes:qqProductsTable</extensionName>
+            <extensionName>c:qqProductsTable</extensionName>
             <fieldType>ComponentInstance</fieldType>
             <inputParameters>
                 <name>pricebookId</name>
