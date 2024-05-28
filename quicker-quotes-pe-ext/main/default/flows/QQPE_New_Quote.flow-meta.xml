@@ -4,7 +4,7 @@
         <name>AA_Redirect_to_Quote</name>
         <label>Redirect to Quote</label>
         <locationX>512</locationX>
-        <locationY>3386</locationY>
+        <locationY>2978</locationY>
         <actionName>c:QQ_NavigateToRecord</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -40,7 +40,7 @@
             <assignToReference>V_AccountId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>LU_Select_Account.selectedChoiceValues</elementReference>
+                <elementReference>LU_Account.recordId</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -664,15 +664,6 @@
         </rules>
     </decisions>
     <dynamicChoiceSets>
-        <name>RC_Accounts</name>
-        <dataType>String</dataType>
-        <displayField>Name</displayField>
-        <object>Account</object>
-        <sortField>Name</sortField>
-        <sortOrder>Asc</sortOrder>
-        <valueField>Id</valueField>
-    </dynamicChoiceSets>
-    <dynamicChoiceSets>
         <name>RC_Contacts</name>
         <dataType>String</dataType>
         <displayField>Name</displayField>
@@ -989,7 +980,7 @@
         <name>S_Confirmation_Screen</name>
         <label>Confirmation Screen</label>
         <locationX>512</locationX>
-        <locationY>3278</locationY>
+        <locationY>2870</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -1148,19 +1139,35 @@
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
-            <name>LU_Select_Account</name>
-            <choiceReferences>RC_Accounts</choiceReferences>
-            <extensionName>flowruntime:choiceLookup</extensionName>
-            <fieldText>Select Account</fieldText>
-            <fieldType>ComponentChoice</fieldType>
+            <name>LU_Account</name>
+            <extensionName>flowruntime:lookup</extensionName>
+            <fieldType>ComponentInstance</fieldType>
             <inputParameters>
-                <name>placeholder</name>
+                <name>fieldApiName</name>
                 <value>
-                    <stringValue>Accounts</stringValue>
+                    <stringValue>ParentId</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Select Account</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>objectApiName</name>
+                <value>
+                    <stringValue>Account</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>maxValues</name>
+                <value>
+                    <numberValue>1.0</numberValue>
                 </value>
             </inputParameters>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
+            <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -1181,6 +1188,7 @@
             </defaultValue>
             <fieldText>Create New Account</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -1394,6 +1402,7 @@
             </defaultValue>
             <fieldText>Select Contact</fieldText>
             <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -1414,6 +1423,7 @@
             </defaultValue>
             <fieldText>Create New Contact</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -1492,6 +1502,7 @@
             </defaultValue>
             <fieldText>Select Opportunity</fieldText>
             <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -1512,6 +1523,7 @@
             </defaultValue>
             <fieldText>Create New Opportunity</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
